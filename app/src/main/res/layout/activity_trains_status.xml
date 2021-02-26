@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:textColor="#000"
+        android:textSize="26sp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txvResult"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/central"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent1"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="goCentral"
+            android:text="CENTRAL"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/western"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent1"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="goWestern"
+            android:text="WESTERN"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/harbour"
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent1"
+            android:fontFamily="sans-serif-condensed"
+            android:onClick="goHarbour"
+            android:text="HARBOUR"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtdis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txvResult"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="552dp"
+        android:textColor="#000"
+        android:textSize="26sp"
+        android:textStyle="normal" />
+
+
+</RelativeLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/regimage"
+    tools:context=".Register">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:fontFamily="monospace"
+        android:text="Create Account"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/lay1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt1"
+        android:onClick="loginPage"
+        android:orientation="vertical"
+        android:padding="40dp">
+
+        <EditText
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/reg_editbg"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:elevation="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/mobno"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/reg_editbg"
+            android:drawableLeft="@drawable/ic_baseline_phone_24"
+            android:elevation="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="Mobile Number"
+            android:inputType="textPhonetic"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/reg_editbg"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:elevation="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="Email ID"
+            android:inputType="textEmailAddress"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/usrname"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/reg_editbg"
+            android:drawableLeft="@drawable/ic_baseline_person_pin_24"
+            android:elevation="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="User Name"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/pwd"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/reg_editbg"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+            android:elevation="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="Password"
+            android:inputType="textWebPassword"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/cpwd1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/reg_editbg"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+            android:elevation="16dp"
+            android:fontFamily="serif-monospace"
+            android:hint="Confirm Password"
+            android:inputType="textWebPassword"
+            android:padding="5dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@android:color/holo_orange_light"
+            android:text="@string/btn1" />
+
+        <TextView
+            android:id="@+id/accnt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="loginPage"
+            android:text="Already have an account? Click to login"
+            android:textColor="@color/com_facebook_button_send_background_color_pressed"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="138dp"
+        android:layout_height="72dp"
+        android:layout_below="@+id/lay1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/reg_btn"
+        android:text="@string/btn2"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRegister"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/com_facebook_button_send_background_color"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="111dp"
+        android:layout_height="136dp"
+        android:layout_gravity="center"
+        android:src="@drawable/headerlogo" />
+
+    <TextView
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Android Train Time Table"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
