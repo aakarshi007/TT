@@ -69,13 +69,6 @@ public class SourceDestination extends AppCompatActivity {
                 if (resultCode == RESULT_OK && data != null) {
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                    val=result.get(0);
-                    for(int i=0;i<= src.length;i++){
-                        String arr=src[i];
-                        if(val.equalsIgnoreCase(arr))
-                        {
-                            source.setText(arr);
-                        }
-                    }
 
                 }
                 break;
