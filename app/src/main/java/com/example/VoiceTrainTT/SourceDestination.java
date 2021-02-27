@@ -17,7 +17,6 @@ import java.util.Locale;
 public class SourceDestination extends AppCompatActivity {
     TextToSpeech textToSpeech;
     EditText source, destination;
-    TextView txt;
     String [] stations={"Mumbai CST","ByCulla","Dadar","Kurla","Ghatkopar","Bhandup","Mulund","Thane","Diva","Dombivali","Kalyan"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +24,6 @@ public class SourceDestination extends AppCompatActivity {
         setContentView(R.layout.activity_source_destination);
         source = (EditText) findViewById(R.id.source1);
         destination = (EditText) findViewById(R.id.dest1);
-        txt=(TextView)findViewById(R.id.txtSrcDest);
-
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
