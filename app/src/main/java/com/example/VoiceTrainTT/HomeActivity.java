@@ -82,8 +82,9 @@ public class HomeActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.feedback :
-                        Toast.makeText(getApplicationContext(),"Feedback Panel is Open", Toast.LENGTH_LONG).show();
+                    case R.id.rateus :
+                        Intent intent1=new Intent(getApplicationContext(),ratingbar.class);
+                        startActivity(intent1);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -91,8 +92,9 @@ public class HomeActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Contact Panel is Open", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.chat :
-                        Toast.makeText(getApplicationContext(),"Chat Panel is Open", Toast.LENGTH_LONG).show();
+                    case R.id.feedback :
+                        Intent intent2=new Intent(getApplicationContext(),feedback.class);
+                        startActivity(intent2);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }
