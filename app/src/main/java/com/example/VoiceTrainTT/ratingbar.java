@@ -3,6 +3,7 @@ package com.example.VoiceTrainTT;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class ratingbar extends AppCompatActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                textView5.setText("Rating"+ratingBar.getProgress());
+                textView5.setText(ratingBar.getProgress());
             }
         });
 

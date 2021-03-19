@@ -78,7 +78,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.maps :
-                        Toast.makeText(getApplicationContext(),"Map is Open", Toast.LENGTH_LONG).show();
+                        Intent intent3=new Intent(getApplicationContext(),map.class);
+                        startActivity(intent3);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
