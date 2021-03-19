@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.maps :
-                        Intent intent3=new Intent(getApplicationContext(),map.class);
+                        Intent intent3=new Intent(getApplicationContext(),Maps.class);
                         startActivity(intent3);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;

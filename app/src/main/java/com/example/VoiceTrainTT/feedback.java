@@ -26,12 +26,13 @@ public class feedback extends AppCompatActivity {
         Email = (EditText) findViewById(R.id.email);
         Number = (EditText) findViewById(R.id.number);
         Feedback = (EditText) findViewById(R.id.feedback);
-        email=Email.getText().toString();
-        number=Number.getText().toString();
-        feed=Feedback.getText().toString();
+
 
     }
     public void submitFeedback(View v){
+        email=Email.getText().toString();
+        number=Number.getText().toString();
+        feed=Feedback.getText().toString();
         Feedbackdb fdb1=new Feedbackdb(email,number,feed);
         FirebaseDatabase.getInstance().getReference("Feedback")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -40,6 +41,9 @@ public class feedback extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(),"Your feedback submitted successfully!",Toast.LENGTH_LONG).show();
+                    Email.setText(" ");
+                    Number.setText(" ");
+                    Feedback.setText(" ");
                 }
             }
         });
