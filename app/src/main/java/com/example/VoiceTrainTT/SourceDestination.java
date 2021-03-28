@@ -22,6 +22,10 @@ import java.util.Locale;
 
 public class SourceDestination extends AppCompatActivity {
     TextToSpeech textToSpeech;
+    public static final String msg1="com.example.VoiceTrainTT.MainActivity";
+    public static final String msg2="com.example.VoiceTrainTT.MainActivity";
+
+    String x,y;
     Intent intent;
     int count=0;
     ImageView img;
@@ -57,6 +61,7 @@ public class SourceDestination extends AppCompatActivity {
             @Override
             public void onFinish() {
                 getSource();
+
 
             }
         }.start();
@@ -95,7 +100,6 @@ public class SourceDestination extends AppCompatActivity {
             public void onResults(Bundle bundle) {
                 ArrayList<String> match = bundle.getStringArrayList(speechRecognizer.RESULTS_RECOGNITION);
                 String text1 = "";
-                String x, y;
 
                 if (match != null) {
                     text1 = match.get(0);
@@ -114,6 +118,8 @@ public class SourceDestination extends AppCompatActivity {
                                 destination.setText(text1);
                             }
                         }
+                        redirect(source.getText().toString(),destination.getText().toString());
+
                     } else {
                         textToSpeech.speak("Please speak Valid Source and Destination........Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
                         try {
@@ -131,10 +137,9 @@ public class SourceDestination extends AppCompatActivity {
                         count = 1;
                         img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
                     }
-
+                }
                     }
 
-                }
             @Override
             public void onPartialResults(Bundle bundle) {
 
@@ -148,25 +153,23 @@ public class SourceDestination extends AppCompatActivity {
     }
     private void getSource(){
         textToSpeech.speak("Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
+        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
         speechRecognizer.startListening(intent);
 
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+
         count=1;
-        img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
+      // img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
+
     }
     private void getDestination(){
         textToSpeech.speak("Please select the destination station", TextToSpeech.QUEUE_FLUSH, null, null);
-        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
+        img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
         speechRecognizer.startListening(intent);
         try {
             Thread.sleep(4000);
@@ -174,6 +177,28 @@ public class SourceDestination extends AppCompatActivity {
             e.printStackTrace();
         }
         count=2;
-        img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
+        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
+
+
+    }
+    private  void redirect(String srcStn,String destStn){
+        if(srcStn.equalsIgnoreCase(destStn)){
+            TextView txtError=findViewById(R.id.txtError);
+            txtError.setText("Invalid !! source and destination cannot be same");
+            textToSpeech.speak("Invalid !! source and destiation cannot be same",TextToSpeech.QUEUE_FLUSH,null,null);
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getSource();
+
+        }
+        else{
+            Intent int1= new Intent(getApplicationContext(),MainActivity.class);
+            int1.putExtra(msg1,srcStn);
+          //  int1.putExtra(msg2,destStn);
+            startActivity(int1);
+        }
     }
 }
