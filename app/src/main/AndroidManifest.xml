@@ -44,8 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddData" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".AdminHomepage">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
