@@ -44,7 +44,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddData" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity" />
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
