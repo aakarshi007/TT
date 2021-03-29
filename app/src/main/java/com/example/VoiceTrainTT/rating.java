@@ -7,9 +7,10 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class ratingbar extends AppCompatActivity {
+public class rating extends AppCompatActivity {
     RatingBar ratingBar;
     TextView textView5;
+    Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,17 +19,12 @@ public class ratingbar extends AppCompatActivity {
 
         ratingBar=(RatingBar)findViewById(R.id.ratingBar);
         textView5=(TextView)findViewById(R.id.textView5);
+        submit=(Button)findViewById(R.id.rate);
         ratingBar.setNumStars(5);
         ratingBar.setStepSize(1);
         ratingBar.setRating(1);
 
-        textView5.setText(ratingBar.getProgress());
-        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                textView5.setText(ratingBar.getProgress());
-            }
-        });
+
 
     }
 }

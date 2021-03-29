@@ -19,20 +19,6 @@
             android:background="@color/colorAccent"
             app:title="Welcome to Train Time Table App"
             app:titleTextColor="@color/cardview_light_background"/>
-        <Button
-            android:id="@+id/signout"
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="343dp"
-            android:layout_marginLeft="343dp"
-            android:layout_marginEnd="-1dp"
-            android:layout_marginRight="3dp"
-            android:text="Logout"
-            android:textSize="10sp" />
 
         <LinearLayout
             android:id="@+id/HomePage"

@@ -35,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
     NavigationView nav;
     ActionBarDrawerToggle toggle;
     DrawerLayout drawerLayout;
-    Button Logout;
 
     SpeechRecognizer speechRecognizer;
     TextToSpeech textToSpeech;
@@ -57,14 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        Logout=(Button)findViewById(R.id.signout);
-        Logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(),Login_activity.class));
-            }
-        });
+
 
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -84,8 +76,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.rateus :
-                        Intent intent1=new Intent(getApplicationContext(),ratingbar.class);
-                        startActivity(intent1);
+                        Intent intent4=new Intent(getApplicationContext(), rating.class);
+                        startActivity(intent4);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -96,6 +88,10 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.feedback :
                         Intent intent2=new Intent(getApplicationContext(),feedback.class);
                         startActivity(intent2);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+                    case R.id.logout:
+                        startActivity(new Intent(getApplicationContext(),Login_activity.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }

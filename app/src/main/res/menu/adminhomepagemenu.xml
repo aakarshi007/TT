@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/routes" android:title="Routes" android:icon="@drawable/track"/>
+    <item android:id="@+id/trains" android:title="Trains" android:icon="@drawable/trains"/>
+    <item android:id="@+id/stations" android:title="Stations" android:icon="@drawable/stations"/>
+    <item android:id="@+id/feedbacks" android:title="Feedbacks" android:icon="@drawable/ic_baseline_email_24"/>
+    <item android:id="@+id/logout" android:icon="@drawable/ic_baseline_power_settings_new_24" android:title="Logout" />
+
+
+</menu>

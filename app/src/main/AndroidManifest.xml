@@ -15,12 +15,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".LocalMaps"></activity>
         <activity android:name=".feedback" />
-        <activity android:name=".ratingbar" />
+        <activity android:name=".rating" />
         <activity android:name=".TrainsStatus" />
         <activity android:name=".Localtrain" />
         <activity android:name=".AdminControl" />
         <activity android:name=".Login_activity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".SourceDestination" />
         <activity android:name=".Register" />
 
         <meta-data
@@ -45,7 +45,7 @@
         </activity>
         <activity android:name=".AddData" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SourceDestination">
+        <activity android:name=".AdminHomepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
