@@ -164,7 +164,6 @@ public class SourceDestination extends AppCompatActivity {
 
 
         count=1;
-      // img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
 
     }
     private void getDestination(){
@@ -194,10 +193,22 @@ public class SourceDestination extends AppCompatActivity {
             getSource();
 
         }
+        else  if ((srcStn.equalsIgnoreCase("") || destStn.equalsIgnoreCase("") && (srcStn.equalsIgnoreCase("") && destStn.equalsIgnoreCase("")))){
+            TextView txtError=findViewById(R.id.txtError);
+            txtError.setText("Invalid !! Please provide a valid source and destination");
+            textToSpeech.speak("Invalid !! Please provide a valid source and destination ",TextToSpeech.QUEUE_FLUSH,null,null);
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getSource();
+
+        }
         else{
             Intent int1= new Intent(getApplicationContext(),MainActivity.class);
-            int1.putExtra(msg1,srcStn);
-          //  int1.putExtra(msg2,destStn);
+            int1.putExtra("SOURCE",srcStn);
+            int1.putExtra("DEST",destStn);
             startActivity(int1);
         }
     }

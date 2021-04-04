@@ -19,8 +19,9 @@
         <activity android:name=".TrainsStatus" />
         <activity android:name=".Localtrain" />
         <activity android:name=".AdminControl" />
+        <activity android:name=".AdminHomepage"/>
         <activity android:name=".Login_activity" />
-        <activity android:name=".SourceDestination" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
 
         <meta-data
@@ -45,7 +46,7 @@
         </activity>
         <activity android:name=".AddData" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".AdminLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

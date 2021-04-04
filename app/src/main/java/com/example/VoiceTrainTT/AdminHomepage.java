@@ -49,7 +49,7 @@ public class AdminHomepage extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.stations:
-                        Toast.makeText(getApplicationContext(), "stations is Open", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "station1 is Open", Toast.LENGTH_LONG).show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.feedbacks:
