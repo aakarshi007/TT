@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
@@ -25,7 +26,6 @@ public class Register extends AppCompatActivity {
     Button register;
     TextView account;
     ProgressBar pb;
-    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,6 @@ public class Register extends AppCompatActivity {
         name = (EditText) findViewById(R.id.fullname);
         mobno = (EditText) findViewById(R.id.mobno);
         emailid = (EditText) findViewById(R.id.email);
-        username = (EditText) findViewById(R.id.usrname);
         pwd = (EditText) findViewById(R.id.pwd);
         cpwd = (EditText) findViewById(R.id.cpwd1);
         register = (Button) findViewById(R.id.btnRegister);
@@ -82,7 +81,7 @@ public class Register extends AppCompatActivity {
                     pwd.requestFocus();
                     return;
                 }
-                if (c_password == password) {
+                if (!c_password.equals(password)) {
                     cpwd.setError("Password and Confirm Password do not match");
                     cpwd.requestFocus();
                     return;
@@ -118,6 +117,7 @@ public class Register extends AppCompatActivity {
                         });
             }
         });
+
     }
 
     public void loginPage(View v) {

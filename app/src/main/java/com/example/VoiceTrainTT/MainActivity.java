@@ -50,18 +50,18 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-//        new CountDownTimer(2000, 1) {
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                speakDetails();
-//
-//            }
-//        }.start();
+        new CountDownTimer(2000, 1) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+
+            }
+
+            @Override
+            public void onFinish() {
+                speakDetails();
+
+            }
+        }.start();
 
         Intent intent2 = getIntent();
         sourceStn = intent2.getStringExtra("SOURCE");
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity
                         }
 
                     }
-                    else if(count==5){
+                    else if(count==2){
                         if(hour == 6){
                             textToSpeech.speak("One Train is available at... " + "6:05" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
                         }
@@ -190,18 +190,18 @@ public class MainActivity extends AppCompatActivity
                         } else if(hour==9) {
                             textToSpeech.speak("One Train is available at... " + "9" + "...Source is..." + Source + "...Destination is....Khopoli..." + "Fast", TextToSpeech.QUEUE_FLUSH, null, null);
                         } else if(hour==10) {
-                            textToSpeech.speak("Two Trains are  Available...one is  at... " + "10" + "...Source is..." + Source + "...Destination is....Badlapur..." + Type + "... and another one is at 10:30...Source is..." + Source + "...Destination is....Dombivli...Fast", TextToSpeech.QUEUE_FLUSH, null, null);
+                            textToSpeech.speak("Three Trains are  Available...one is  at... " + "10" + "...Source is..." + Source + "...Destination is....Badlapur..." + Type + "... and another one is at 10:30...Source is..." + Source + "...Destination is....Dombivli...Fast and another one is at 10:00...Source is... Dadar + ...Destination is....Thane...SLow", TextToSpeech.QUEUE_FLUSH, null, null);
                         } else if(hour==11) {
                             textToSpeech.speak("Two Trains are  Available...one is  at... " + "11" + "...Source is..." + Source + "...Destination is....Kalyan..." + "Fast" + "... and another one is at 11:30...Source is..." + Source + "...Destination is....Asangaon..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
                         }
                         else if(hour==12) {
                             textToSpeech.speak("One Train is available at... " + "12:30" + "...Source is..." + Source + "...Destination is....Dombivli..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
                         }else if(hour==13) {
-                            textToSpeech.speak("Two Trains are  Available...one is  at... " + "13:00" + "...Source is..." + Source + "...Destination is....Kasara..." + Type + "... and another one is at 13:30...Source is..." + Source + "...Destination is....Thane..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                            textToSpeech.speak("Two Trains are  Available... one is  at... " + "13:00" + "...Source is..." + Source + "...Destination is....Kasara..." + Type + "... and another one is at 13:30...Source is..." + Source + "...Destination is....Thane..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
                         }else if(hour==14) {
-                            textToSpeech.speak("Two Trains are  Available...one is  at... " + "14" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type+ "... and another one is at 14:30...Source is..." + Source + "...Destination is....Karjat..." + "Fast", TextToSpeech.QUEUE_FLUSH, null, null);
+                            textToSpeech.speak("Two Trains are  Available... one is  at... " + "14" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type+ "... and another one is at 14:30...Source is..." + Source + "...Destination is....Karjat..." + "Fast", TextToSpeech.QUEUE_FLUSH, null, null);
                         }else if(hour==15) {
-                            textToSpeech.speak("Two Trains are  Available...one is  at... " + "15:05" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type + "... and another one is at 15:40...Source is..." + Source + "...Destination is....Dombivli..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                            textToSpeech.speak("Two Trains are  Available .... one is  at... " + "15:5" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type + "... and another one is at 15:40...Source is..." + Source + "...Destination is....Dombivli..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
                         }else if(hour==16) {
                             textToSpeech.speak("One train  is available  at... " + "4" + "...Source is..." + Source + "...Destination is....Kasara...", TextToSpeech.QUEUE_FLUSH, null, null);
                         }else if(hour==17) {

@@ -164,6 +164,7 @@ public class SourceDestination extends AppCompatActivity {
 
 
         count=1;
+      // img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
 
     }
     private void getDestination(){
@@ -207,8 +208,12 @@ public class SourceDestination extends AppCompatActivity {
         }
         else{
             Intent int1= new Intent(getApplicationContext(),MainActivity.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putString("srcStn", srcStn);
+//            bundle.putString("destStn", destStn);
             int1.putExtra("SOURCE",srcStn);
             int1.putExtra("DEST",destStn);
+//            int1.putExtras(bundle);
             startActivity(int1);
         }
     }

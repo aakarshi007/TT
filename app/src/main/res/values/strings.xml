@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Voice based m-indicator</string>
-    <string name="btn1">GET OTP</string>
+    <string name="btn1">VERIFY EMAIL</string>
     <string name="btn2">REGISTER</string>
     <string name="facebook_app_id">366342594594354</string>
     <string name="fb_login_protocol_scheme">fb366342594594354</string>

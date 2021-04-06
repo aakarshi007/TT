@@ -42,7 +42,7 @@ public class Login_activity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        emailid = (EditText) findViewById(R.id.input_email);
+        emailid = (EditText) findViewById(R.id.resetEmail);
         pwd = (EditText) findViewById(R.id.input_password);
         progressBar=(ProgressBar)findViewById(R.id.progressBar2);
         mAuth=FirebaseAuth.getInstance();
@@ -137,5 +137,8 @@ public class Login_activity extends AppCompatActivity {
 
     public void googleSignIn(View v){
         signIn();
+    }
+    public void resetPassword(View v){
+        startActivity(new Intent(getApplicationContext(),ForgotPassword.class));
     }
 }

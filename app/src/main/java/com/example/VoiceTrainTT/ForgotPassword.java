@@ -16,10 +16,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPassword extends AppCompatActivity {
-    private EditText input_email;
-    private Button button2;
-    private ProgressBar progressBar3;
-
+    EditText input_email;
+    Button resetBtn;
+    ProgressBar progressBar3;
     FirebaseAuth auth;
 
     @Override
@@ -27,29 +26,29 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        input_email=(EditText)findViewById(R.id.email);
-        button2=(Button)findViewById(R.id.button2);
-        progressBar3=(ProgressBar)findViewById(R.id.progressBar3);
+        input_email = (EditText) findViewById(R.id.resetEmail);
+        resetBtn = (Button) findViewById(R.id.resetBtn);
+        progressBar3 = (ProgressBar) findViewById(R.id.progressBar3);
 
-        auth= FirebaseAuth.getInstance();
-
-        button2.setOnClickListener(new View.OnClickListener() {
+        auth = FirebaseAuth.getInstance();
+        resetBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                button2();
+                resetPassword();
             }
         });
+
     }
+    private void resetPassword()
+    {
+        String email = input_email.getText().toString().trim();
 
-    private void button2() {
-        String email=input_email.getText().toString().trim();
-
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             input_email.setError("Email is required");
             input_email.requestFocus();
             return;
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             input_email.setError("please provide valid email");
             input_email.requestFocus();
             return;
@@ -58,10 +57,10 @@ public class ForgotPassword extends AppCompatActivity {
         auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()){
-                    Toast.makeText(ForgotPassword.this,"check your email to reset your password!", Toast.LENGTH_LONG).show();
-                }else {
-                    Toast.makeText(ForgotPassword.this,"Try again! something wrong happened", Toast.LENGTH_LONG).show();
+                if (task.isSuccessful()) {
+                    Toast.makeText(ForgotPassword.this, "Check your email to reset your password!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(ForgotPassword.this, "Try again! something wrong happened", Toast.LENGTH_LONG).show();
                 }
             }
         });

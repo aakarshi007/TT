@@ -29,13 +29,13 @@
         android:textColorHighlight="#3F51B5"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/input_email"
+        app:layout_constraintBottom_toTopOf="@+id/resetEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/input_email"
+        android:id="@+id/resetEmail"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginBottom="24dp"
