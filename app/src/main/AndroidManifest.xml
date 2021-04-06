@@ -20,6 +20,7 @@
         <activity android:name=".Localtrain" />
         <activity android:name=".AdminControl" />
         <activity android:name=".AdminHomepage"/>
+        <activity android:name=".AdminLogin"/>
         <activity android:name=".Login_activity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
@@ -46,7 +47,7 @@
         </activity>
         <activity android:name=".AddData" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".AdminLogin">
+        <activity android:name=".SourceDestination">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
