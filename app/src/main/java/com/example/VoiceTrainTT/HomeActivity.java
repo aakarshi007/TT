@@ -41,6 +41,8 @@ public class HomeActivity extends AppCompatActivity {
     TextView txt;
     public static final String msg="com.aakarsh.voicebasedm_indicator.TrainStatus";
     Intent intent;
+    int count=0;
+    int lang=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +124,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                String welcome="Welcome to Indian Railway Time Table System, Please choose the type of train for which you want to get the status... Speak Local for Local Train, express for express train or metro for metro train ";
+                String welcome="Welcome to Indian Railway Time Table System, Please choose the language ...speak one for english......भारतीय  रेलवे टाइम टेबल सिस्टम में आपका स्वागत है, कृपया  एक भाषा चुनें हिंदी भाषा के लिए do बोलें ";
                 textToSpeech.speak(welcome, TextToSpeech.QUEUE_FLUSH,null,null);
                 try {
                     Thread.sleep(12000);
@@ -130,7 +132,6 @@ public class HomeActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 speechRecognizer.startListening(intent);
-                txt.setText("Speak Now");
                 try {
                     Thread.sleep(4000);
                 } catch (InterruptedException e) {
@@ -174,23 +175,13 @@ public class HomeActivity extends AppCompatActivity {
             public void onResults(Bundle bundle) {
                 ArrayList<String> match = bundle.getStringArrayList(speechRecognizer.RESULTS_RECOGNITION);
                 String text1 = "";
-                // String text2= " ";
 
                 if (match != null) {
                     text1=match.get(0);
                     txt.setText(text1);
-                    if (text1.equals("local")) {
-                        localTrain();
-                    } else if (text1.equals("Express")) {
-                        expressTrain();
-                    } else if (text1.equals("Metro")){
-                        metroTrain();
-                    }
-                    else
-                    {
-                        String welcome = "Please choose the type of train for which you want to get the status... Speak Local for Local Train, express for express train or metro for metro train ";
-                        textToSpeech.speak("We didn't get you, Please try again....."+welcome, TextToSpeech.QUEUE_FLUSH,null,null);
-                        txt.setText(welcome);
+                    if (text1.equalsIgnoreCase("1")) {
+                        String welcome="Please choose the type of train for which you want to get the status... Speak Local for Local Train, express for express train or metro for metro train ";
+                        textToSpeech.speak(welcome, TextToSpeech.QUEUE_FLUSH,null,null);
                         try {
                             Thread.sleep(10000);
                         } catch (InterruptedException e) {
@@ -203,7 +194,113 @@ public class HomeActivity extends AppCompatActivity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                       // count=1;
+                    } else if (text1.equalsIgnoreCase("do")) {
+                        String welcome="कृपया उस ट्रेन का प्रकार चुनें, जिसके लिए आप स्थिति प्राप्त करना चाहते हैं ... लोकल ट्रेन के लिए बोलें Local, एक्सप्रेस ट्रेन के लिए एक्सप्रेस या मेट्रो ट्रेन के लिए मेट्रो ";
+                        textToSpeech.speak(welcome, TextToSpeech.QUEUE_FLUSH,null,null);
+                        try {
+                            Thread.sleep(12000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        speechRecognizer.startListening(intent);
+                        txt.setText("अब बोलो");
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        count=1;
+                        lang=2;
+                    }
+                    else if(count ==0)
+                    {
+                        String welcome = "Please choose the correct language... Please choose the language speak one for english......इंडियन रेलवे टाइम टेबल सिस्टम में आपका स्वागत है, कृपया  एक भाषा चुनें हिंदी भाषा के लिए do बोलें ";
+                        textToSpeech.speak("We didn't get you, Please try again....."+welcome, TextToSpeech.QUEUE_FLUSH,null,null);
+                        txt.setText(welcome);
+                        try {
+                            Thread.sleep(12000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        speechRecognizer.startListening(intent);
+                        txt.setText("Speak Now");
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        count+=0;
 
+
+                    }
+                    if(count ==1) {
+
+                        if (text1.equalsIgnoreCase("local")) {
+                            if(lang ==0) {
+                                localTrain();
+                            }
+                            else
+                            {
+                                localTrainHindi();
+                            }
+                        } else if (text1.equalsIgnoreCase("Express")) {
+                            if(lang ==0) {
+                                expressTrain();                            }
+                            else
+                            {
+                                expressTrainHindi();
+                            }
+
+                        } else if (text1.equalsIgnoreCase("Metro")) {
+                            if(lang ==0) {
+                                metroTrain();
+                            }
+                            else
+                            {
+                                metroTrainHindi();
+                            }
+
+                        } else {
+                            if(lang ==0) {
+                                String welcome = "Please choose the type of train for which you want to get the status... Speak Local for Local Train, express for express train or metro for metro train ";
+                                textToSpeech.speak("We didn't get you, Please try again....." + welcome, TextToSpeech.QUEUE_FLUSH, null, null);
+                                txt.setText(welcome);
+                                try {
+                                    Thread.sleep(10000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                speechRecognizer.startListening(intent);
+                                txt.setText("Speak Now");
+                                try {
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            else
+                            {
+                                String welcome = "कृपया वह ट्रेन चुनें, जिसके लिए आप स्टेटस प्राप्त करना चाहते हैं ... लोकल ट्रेन के लिए लोकल बोलें, एक्सप्रेस ट्रेन के लिए एक्सप्रेस या मेट्रो ट्रेन के लिए मेट्रो";
+                                textToSpeech.speak("हम आपको समझ नहीं पाए, कृपया पुनः प्रयास करें....." + welcome, TextToSpeech.QUEUE_FLUSH, null, null);
+                                txt.setText(welcome);
+                                try {
+                                    Thread.sleep(10000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                speechRecognizer.startListening(intent);
+                                txt.setText("Speak Now");
+                                try {
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+
+
+
+                        }
                     }
                 }
             }
@@ -243,6 +340,34 @@ public class HomeActivity extends AppCompatActivity {
     }
     @SuppressLint("NewApi")
     public void metroTrain(){
+        String message="You have choosen metro train, Please speak destination Station";
+        Intent int2=new Intent(this,TrainsStatus.class);
+        int2.putExtra(msg,message);
+        startActivity(int2);
+
+        textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null,null);
+    }
+    private void localTrainHindi(){
+        String message="आपने लोकल ट्रेन को चुना है, कृपया लाइन चुनें, बस किसी एक लाइन पर क्लिक करें या वेस्टर्न के लिए सेंट्रल 2 के लिए 1 बोलें और हार्बर के लिए 3  बोले";
+        Intent int2=new Intent(this,TrainsStatus.class);
+        int2.putExtra(msg,message);
+        startActivity(int2);
+
+        textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null,null);
+    }
+
+    @SuppressLint("NewApi")
+    public void expressTrainHindi(){
+        String message="You have choosen Express train, Please speak destination Station";
+        Intent int2=new Intent(this,TrainsStatus.class);
+        int2.putExtra(msg,message);
+        startActivity(int2);
+
+        textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null,null);
+
+    }
+    @SuppressLint("NewApi")
+    public void metroTrainHindi(){
         String message="You have choosen metro train, Please speak destination Station";
         Intent int2=new Intent(this,TrainsStatus.class);
         int2.putExtra(msg,message);
