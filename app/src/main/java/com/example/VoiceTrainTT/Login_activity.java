@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -140,5 +141,8 @@ public class Login_activity extends AppCompatActivity {
     }
     public void resetPassword(View v){
         startActivity(new Intent(getApplicationContext(),ForgotPassword.class));
+    }
+    public void goToAdmin(View v){
+        startActivity(new Intent(getApplicationContext(),AdminLogin.class));
     }
 }

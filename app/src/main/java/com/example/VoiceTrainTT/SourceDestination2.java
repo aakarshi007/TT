@@ -1,8 +1,5 @@
 package com.example.VoiceTrainTT;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,12 +12,14 @@ import android.speech.tts.TextToSpeech;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class SourceDestination extends AppCompatActivity {
+public class SourceDestination2 extends AppCompatActivity {
     TextToSpeech textToSpeech;
     public static final String msg1="com.example.VoiceTrainTT.MainActivity";
     public static final String msg2="com.example.VoiceTrainTT.MainActivity";
@@ -31,13 +30,13 @@ public class SourceDestination extends AppCompatActivity {
     ImageView img;
     SpeechRecognizer speechRecognizer;
     EditText source, destination;
-    String[] src = {"Mumbai CST", "ByCulla", "Dadar", "Kurla", "Ghatkopar", "Bhandup", "Mulund", "Thane", "Diva", "Dombivali", "Kalyan"};
-    String[] dest = {"Mumbai CST", "ByCulla", "Dadar", "Kurla", "Ghatkopar", "Bhandup", "Mulund", "Thane", "Diva", "Dombivali", "Kalyan"};
+    String[] src = {"Churchgate", "Mumbai Central", "Dadar", "Bandra", "Andheri", "Borivali", "Bhayander", "Vasai Road", "Virar"};
+    String[] dest = {"Churchgate", "Mumbai Central", "Dadar", "Bandra", "Andheri", "Borivali", "Bhayander", "Vasai Road", "Virar"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_source_destination);
+        setContentView(R.layout.activity_source_destination2);
         source = (EditText) findViewById(R.id.source1);
         destination = (EditText) findViewById(R.id.dest1);
         img=(ImageView)findViewById(R.id.imgMic);

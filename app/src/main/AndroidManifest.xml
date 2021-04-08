@@ -20,10 +20,11 @@
         <activity android:name=".ForgotPassword" />
         <activity android:name=".Localtrain" />
         <activity android:name=".AdminControl" />
+        <activity android:name=".SourceDestination2" />
         <activity android:name=".AdminHomepage"/>
         <activity android:name=".AdminLogin"/>
         <activity android:name=".SourceDestination" />
-        <activity android:name=".Login_activity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
 
         <meta-data
@@ -48,7 +49,7 @@
         </activity>
         <activity android:name=".AddData" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".Login_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

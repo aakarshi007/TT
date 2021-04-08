@@ -44,7 +44,7 @@ public class TrainsStatus extends AppCompatActivity {
             public void onFinish() {
                 textToSpeech.speak("मध्य रेलवे के लिए एक बोले..पश्चिमी रेलवे के लिए दो बोले.. या फिर हार्वर रेलवे के लिए तीन बोले ", TextToSpeech.QUEUE_FLUSH, null, null);
                 try {
-                    Thread.sleep(12000);
+                    Thread.sleep(15000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -87,7 +87,7 @@ public class TrainsStatus extends AppCompatActivity {
         }
 
         else if(txtdis.getText().toString().equalsIgnoreCase("do")){
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent=new Intent(getApplicationContext(),SourceDestination2.class);
             String val=txtdis.getText().toString();
             intent.putExtra(msg,val);
             startActivity(intent);
@@ -122,14 +122,14 @@ public class TrainsStatus extends AppCompatActivity {
     }
 
     public void goCentral(View v) {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SourceDestination.class);
         String val = txtdis.getText().toString();
         intent.putExtra(msg, val);
         startActivity(intent);
     }
 
     public void goWestern(View v) {
-        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        Intent intent=new Intent(getApplicationContext(),SourceDestination2.class);
            String val=txtdis.getText().toString();
           intent.putExtra(msg,val);
           startActivity(intent);

@@ -88,7 +88,7 @@
             android:onClick="registerPage"
             android:text="No account yet? Create one"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -145,5 +145,14 @@
             android:visibility="invisible"
             android:layout_weight="1" />
 
+        <TextView
+            android:id="@+id/adminTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="goToAdmin"
+            android:text="Admin Login"
+            android:textSize="18sp" />
     </LinearLayout>
+
 </ScrollView>

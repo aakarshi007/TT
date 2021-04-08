@@ -182,6 +182,7 @@ public class HomeActivity extends AppCompatActivity {
                     if (text1.equalsIgnoreCase("1")) {
                         String welcome="Please choose the type of train for which you want to get the status... Speak Local for Local Train, express for express train or metro for metro train ";
                         textToSpeech.speak(welcome, TextToSpeech.QUEUE_FLUSH,null,null);
+                        txt.setText(welcome);
                         try {
                             Thread.sleep(10000);
                         } catch (InterruptedException e) {
@@ -194,7 +195,7 @@ public class HomeActivity extends AppCompatActivity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                       // count=1;
+                        count=1;
                     } else if (text1.equalsIgnoreCase("do")) {
                         String welcome="कृपया उस ट्रेन का प्रकार चुनें, जिसके लिए आप स्थिति प्राप्त करना चाहते हैं ... लोकल ट्रेन के लिए बोलें Local, एक्सप्रेस ट्रेन के लिए एक्सप्रेस या मेट्रो ट्रेन के लिए मेट्रो ";
                         textToSpeech.speak(welcome, TextToSpeech.QUEUE_FLUSH,null,null);
@@ -375,4 +376,5 @@ public class HomeActivity extends AppCompatActivity {
 
         textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null,null);
     }
+
 }

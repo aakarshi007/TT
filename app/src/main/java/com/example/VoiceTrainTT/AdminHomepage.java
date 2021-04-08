@@ -45,7 +45,7 @@ public class AdminHomepage extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.trains:
-                        Toast.makeText(getApplicationContext(), "Trains is Open", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext(),AdminControl.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.stations:
