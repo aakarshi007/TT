@@ -5,7 +5,7 @@
     android:id="@+id/reg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/regimage"
+    android:background="@drawable/background"
     tools:context=".Register">
 
     <TextView
@@ -112,10 +112,10 @@
             android:id="@+id/accnt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
+            android:background="@android:color/holo_orange_light"
             android:onClick="loginPage"
             android:text="Already have an account? Click to login"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold" />
 

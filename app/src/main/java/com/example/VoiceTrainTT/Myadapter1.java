@@ -75,7 +75,7 @@ public class Myadapter1 extends FirebaseRecyclerAdapter<model, Myadapter1.myview
                         map.put("Type",Type.getText().toString());
 
 
-                        FirebaseDatabase.getInstance().getReference().child("Locals").child("Central")
+                        FirebaseDatabase.getInstance().getReference().child("Locals").child("Harbour")
                                 .child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -107,7 +107,7 @@ public class Myadapter1 extends FirebaseRecyclerAdapter<model, Myadapter1.myview
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("Locals").child("Central")
+                        FirebaseDatabase.getInstance().getReference().child("Locals").child("Harbour")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
