@@ -112,15 +112,33 @@ public class MainActivity extends AppCompatActivity
             recview.setAdapter(adapter);
             count=5;
         }
-        else
-        {
+        else if (sourceStn.equalsIgnoreCase("Kalyan") && destStn.equalsIgnoreCase("Dombivli")) {
+            FirebaseRecyclerOptions<model> options =
+                    new FirebaseRecyclerOptions.Builder<model>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("CentralUp"), model.class)
+                            .build();
+            adapter = new myadapter(options);
+            recview.setAdapter(adapter);
+            count=6;
+        }
+        else if (sourceStn.equalsIgnoreCase("Kalyan") && destStn.equalsIgnoreCase("Diva")) {
+            FirebaseRecyclerOptions<model> options =
+                    new FirebaseRecyclerOptions.Builder<model>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").equalTo("Kalyan"), model.class)
+                            .build();
+            adapter = new myadapter(options);
+            recview.setAdapter(adapter);
+            count=7;
+        }
+else
+            {
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central"), model.class)
                             .build();
             adapter = new myadapter(options);
             recview.setAdapter(adapter);
-            count=6;
+            count=8;
         }
     }
     @Override

@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ExpressMetro"></activity>
+        <activity android:name=".FeedbackAdmin"></activity>
+        <activity android:name=".ExpressMetro" />
         <activity android:name=".TrainLines" />
         <activity android:name=".LocalMaps" />
         <activity android:name=".feedback" />
@@ -25,8 +26,9 @@
         <activity android:name=".AdminControlWestern" />
         <activity android:name=".AdminControlHarbour" />
         <activity android:name=".AdminControlExpress" />
+        <activity android:name=".AdminControlMetro" />
         <activity android:name=".SourceDestination2" />
-        <activity android:name=".Login_activity" />
+        <activity android:name=".AdminHomepage" />
         <activity android:name=".AdminLogin" />
         <activity android:name=".SourceDestination" />
         <activity android:name=".HomeActivity" />
@@ -56,8 +58,9 @@
         <activity android:name=".AddDataHarbour" />
         <activity android:name=".AddDataWestern" />
         <activity android:name=".AddDataExpress" />
+        <activity android:name=".AddDataMetro" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".AdminHomepage">
+        <activity android:name=".Login_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
