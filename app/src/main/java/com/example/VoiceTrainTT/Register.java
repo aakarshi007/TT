@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    EditText name, mobno, emailid, username, pwd, cpwd;
+    EditText name, mobno, emailid,  pwd, cpwd;
     Button register;
     TextView account;
     ProgressBar pb;
@@ -41,10 +41,10 @@ public class Register extends AppCompatActivity {
         account = (TextView) findViewById(R.id.accnt);
         pb = (ProgressBar) findViewById(R.id.progressBar);
 
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-            finish();
-        }
+//        if (mAuth.getCurrentUser() != null) {
+//            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+//            finish();
+//        }
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

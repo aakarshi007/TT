@@ -41,11 +41,11 @@ public class AdminHomepage extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.routes:
-                        Toast.makeText(getApplicationContext(), "routes is Open", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getApplicationContext(), TrainLines.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.trains:
-                        startActivity(new Intent(getApplicationContext(),AdminControl.class));
+                        startActivity(new Intent(getApplicationContext(),ExpressMetro.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.stations:

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,7 @@ public class Login_activity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     EditText emailid, pwd;
     ProgressBar progressBar;
+    TextView txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,14 @@ public class Login_activity extends AppCompatActivity {
         pwd = (EditText) findViewById(R.id.input_password);
         progressBar=(ProgressBar)findViewById(R.id.progressBar2);
         mAuth=FirebaseAuth.getInstance();
+        txt=(TextView)findViewById(R.id.reg);
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),Register.class));
+
+            }
+        });
 
 
     }
@@ -84,10 +94,6 @@ public class Login_activity extends AppCompatActivity {
                 }
             }
         });
-    }
-    public void registerPage(View v){
-        Intent intent=new Intent(getApplicationContext(),Register.class);
-        startActivity(intent);
     }
 
     private void signIn() {

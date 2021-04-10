@@ -77,20 +77,16 @@
             android:textColor="@android:color/background_light"
             android:textSize="20dp"
             android:textStyle="bold" />
-
         <TextView
-            android:id="@+id/link_signup"
+            android:id="@+id/reg"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:onClick="registerPage"
-            android:text="No account yet? Create one"
+            android:text="No Account yet? Create one"
             android:textColor="@android:color/background_light"
             android:textSize="18sp"
             android:textStyle="bold" />
-
         <TextView
             android:id="@+id/link_signup1"
             android:layout_width="fill_parent"

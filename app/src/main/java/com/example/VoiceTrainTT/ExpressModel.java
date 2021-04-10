@@ -1,20 +1,18 @@
 package com.example.VoiceTrainTT;
 
-public class model {
-    private String Destination,Source,Time,TrainNo,TrainName,Type;
+public class ExpressModel {
+    private String Destination,Source,Time,TrainNo,Type;
 
-    model() {
+    ExpressModel() {
 
     }
 
-    public model(String destination, String source, String time, String trainNo, String type,String trainName) {
+    public ExpressModel(String destination, String source, String time, String trainNo, String type) {
         Destination = destination;
         Source = source;
         Time = time;
         TrainNo = trainNo;
-        TrainName=trainName;
         Type = type;
-
     }
 
     public String getDestination() {
@@ -55,12 +53,5 @@ public class model {
 
     public void setType(String type) {
         Type = type;
-    }
-    public String getTrainName() {
-        return TrainName;
-    }
-
-    public void setTrainName(String name) {
-        TrainName = name;
     }
 }
