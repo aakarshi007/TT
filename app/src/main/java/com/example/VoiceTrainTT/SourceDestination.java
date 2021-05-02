@@ -169,9 +169,7 @@ public class SourceDestination extends AppCompatActivity {
         });
     }
     private void getSource(){
-        Intent intent=getIntent();
-        String msg1=intent.getStringExtra("msg");
-        if(msg1.equalsIgnoreCase("one")) {
+
             textToSpeech.speak("Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
             img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
             try {
@@ -184,25 +182,8 @@ public class SourceDestination extends AppCompatActivity {
 
             count = 1;
         }
-        else
-        {
-            textToSpeech.speak("कृपया स्रोत स्टेशन का चयन करें", TextToSpeech.QUEUE_FLUSH, null, null);
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            speechRecognizer.startListening(intent);
 
-
-            count = 1;
-        }
-    }
     private void getDestination(){
-        Intent intent=getIntent();
-        String msg1=intent.getStringExtra("msg");
-        if(msg1.equalsIgnoreCase("one")) {
             textToSpeech.speak("Please select the destination station", TextToSpeech.QUEUE_FLUSH, null, null);
             img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
             speechRecognizer.startListening(intent);
@@ -214,20 +195,6 @@ public class SourceDestination extends AppCompatActivity {
             count = 2;
             img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
         }
-        else{
-            textToSpeech.speak("कृपया गंतव्य स्टेशन का चयन करें", TextToSpeech.QUEUE_FLUSH, null, null);
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
-            speechRecognizer.startListening(intent);
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            count = 2;
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
-        }
-
-    }
     private  void redirect(String srcStn,String destStn){
         if(srcStn.equalsIgnoreCase(destStn)){
             TextView txtError=findViewById(R.id.txtError);

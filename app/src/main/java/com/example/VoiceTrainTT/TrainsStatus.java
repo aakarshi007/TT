@@ -93,7 +93,7 @@ public class TrainsStatus extends AppCompatActivity {
             startActivity(intent);
         }
         else if(txtdis.getText().toString().equalsIgnoreCase("Tin")|| txtdis.getText().toString().equals("three")){
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent=new Intent(getApplicationContext(),SourceDestination3.class);
             String val=txtdis.getText().toString();
             intent.putExtra(msg,val);
             startActivity(intent);

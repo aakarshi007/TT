@@ -9,8 +9,11 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,12 +24,12 @@ import java.util.Locale;
 
 public class SourceDestination2 extends AppCompatActivity {
     TextToSpeech textToSpeech;
-    public static final String msg1="com.example.VoiceTrainTT.MainActivity";
-    public static final String msg2="com.example.VoiceTrainTT.MainActivity";
-
-    String x,y;
+    public static final String msg1 = "com.example.VoiceTrainTT.MainActivity";
+    public static final String msg2 = "com.example.VoiceTrainTT.MainActivity";
+    Spinner spinner1, spinner2;
+    String x, y;
     Intent intent;
-    int count=0;
+    int count = 0;
     ImageView img;
     SpeechRecognizer speechRecognizer;
     EditText source, destination;
@@ -39,7 +42,16 @@ public class SourceDestination2 extends AppCompatActivity {
         setContentView(R.layout.activity_source_destination2);
         source = (EditText) findViewById(R.id.source1);
         destination = (EditText) findViewById(R.id.dest1);
-        img=(ImageView)findViewById(R.id.imgMic);
+        img = (ImageView) findViewById(R.id.imgMic);
+        spinner1 = (Spinner) findViewById(R.id.spin1);
+        ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, src);
+        arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(arrayAdapter1);
+        spinner2 = (Spinner) findViewById(R.id.spin2);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item, dest);
+        arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(arrayAdapter2);
+
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, PackageManager.PERMISSION_GRANTED);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -117,7 +129,7 @@ public class SourceDestination2 extends AppCompatActivity {
                                 destination.setText(text1);
                             }
                         }
-                        redirect(source.getText().toString(),destination.getText().toString());
+                        redirect(source.getText().toString(), destination.getText().toString());
 
                     } else {
                         textToSpeech.speak("Please speak Valid Source and Destination........Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
@@ -137,7 +149,7 @@ public class SourceDestination2 extends AppCompatActivity {
                         img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
                     }
                 }
-                    }
+            }
 
             @Override
             public void onPartialResults(Bundle bundle) {
@@ -150,7 +162,8 @@ public class SourceDestination2 extends AppCompatActivity {
             }
         });
     }
-    private void getSource(){
+
+    private void getSource() {
         textToSpeech.speak("Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
         img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
         try {
@@ -161,29 +174,27 @@ public class SourceDestination2 extends AppCompatActivity {
         speechRecognizer.startListening(intent);
 
 
-
-        count=1;
-
+        count = 1;
     }
-    private void getDestination(){
-        textToSpeech.speak("Please select the destination station", TextToSpeech.QUEUE_FLUSH, null, null);
-        img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
-        speechRecognizer.startListening(intent);
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+    private void getDestination() {
+            textToSpeech.speak("Please select the destination station", TextToSpeech.QUEUE_FLUSH, null, null);
+            img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
+            speechRecognizer.startListening(intent);
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            count = 2;
+            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
         }
-        count=2;
-        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
 
-
-    }
-    private  void redirect(String srcStn,String destStn){
-        if(srcStn.equalsIgnoreCase(destStn)){
-            TextView txtError=findViewById(R.id.txtError);
+    private void redirect(String srcStn, String destStn) {
+        if (srcStn.equalsIgnoreCase(destStn)) {
+            TextView txtError = findViewById(R.id.txtError);
             txtError.setText("Invalid !! source and destination cannot be same");
-            textToSpeech.speak("Invalid !! source and destiation cannot be same",TextToSpeech.QUEUE_FLUSH,null,null);
+            textToSpeech.speak("Invalid !! source and destiation cannot be same", TextToSpeech.QUEUE_FLUSH, null, null);
             try {
                 Thread.sleep(4000);
             } catch (InterruptedException e) {
@@ -191,11 +202,10 @@ public class SourceDestination2 extends AppCompatActivity {
             }
             getSource();
 
-        }
-        else  if ((srcStn.equalsIgnoreCase("") || destStn.equalsIgnoreCase("") && (srcStn.equalsIgnoreCase("") && destStn.equalsIgnoreCase("")))){
-            TextView txtError=findViewById(R.id.txtError);
+        } else if ((srcStn.equalsIgnoreCase("") || destStn.equalsIgnoreCase("") && (srcStn.equalsIgnoreCase("") && destStn.equalsIgnoreCase("")))) {
+            TextView txtError = findViewById(R.id.txtError);
             txtError.setText("Invalid !! Please provide a valid source and destination");
-            textToSpeech.speak("Invalid !! Please provide a valid source and destination ",TextToSpeech.QUEUE_FLUSH,null,null);
+            textToSpeech.speak("Invalid !! Please provide a valid source and destination ", TextToSpeech.QUEUE_FLUSH, null, null);
             try {
                 Thread.sleep(4000);
             } catch (InterruptedException e) {
@@ -203,11 +213,43 @@ public class SourceDestination2 extends AppCompatActivity {
             }
             getSource();
 
+        } else {
+            Intent int1 = new Intent(getApplicationContext(), MainActivity.class);
+            int1.putExtra("SOURCE", srcStn);
+            int1.putExtra("DEST", destStn);
+            startActivity(int1);
         }
-        else{
-            Intent int1= new Intent(getApplicationContext(),MainActivity.class);
-            int1.putExtra("SOURCE",srcStn);
-            int1.putExtra("DEST",destStn);
+    }
+
+    public void goToDetails(View v) {
+        source.setText(spinner1.getSelectedItem().toString());
+        destination.setText(spinner2.getSelectedItem().toString());
+        if (source.getText().toString().equalsIgnoreCase(destination.getText().toString())) {
+            TextView txtError = findViewById(R.id.txtError);
+            txtError.setText("Invalid !! source and destination cannot be same");
+            textToSpeech.speak("Invalid !! source and destiation cannot be same", TextToSpeech.QUEUE_FLUSH, null, null);
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getSource();
+
+        } else if ((source.getText().toString().equalsIgnoreCase("") || destination.getText().toString().equalsIgnoreCase("") && (source.getText().toString().equalsIgnoreCase("") && destination.getText().toString().equalsIgnoreCase("")))) {
+            TextView txtError = findViewById(R.id.txtError);
+            txtError.setText("Invalid !! Please provide a valid source and destination");
+            textToSpeech.speak("Invalid !! Please provide a valid source and destination ", TextToSpeech.QUEUE_FLUSH, null, null);
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getSource();
+
+        } else {
+            Intent int1 = new Intent(getApplicationContext(), MainActivity2.class);
+            int1.putExtra("SOURCE", spinner1.getSelectedItem().toString());
+            int1.putExtra("DEST", spinner2.getSelectedItem().toString());
             startActivity(int1);
         }
     }

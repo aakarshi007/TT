@@ -45,7 +45,7 @@
         <activity android:name=".MainActivityExpress" />
         <activity android:name=".MainActivityMetro" />
 
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".AdminHomepage" />
         <activity android:name=".Register" />
 
         <meta-data
@@ -79,7 +79,7 @@
         <activity android:name=".AddDataMetroUp" />
         <activity android:name=".Login_activity" />
         <activity android:name=".HomeActivity1"/>
-        <activity android:name=".AdminHomepage">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

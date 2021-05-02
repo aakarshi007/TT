@@ -157,7 +157,9 @@ public class HomeActivity1 extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    lang+=1;
                 }
+
             }
         }.start();
         speechRecognizer.setRecognitionListener(new RecognitionListener() {
@@ -293,18 +295,18 @@ public class HomeActivity1 extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     public void expressTrain(){
-        String message="You have choosen Express train, Please speak destination Station";
-        Intent int2=new Intent(this,TrainsStatus.class);
+        String message="You have choosen Express train";
+        Intent int2=new Intent(this,SourceDestination4.class);
         int2.putExtra(msg,message);
         startActivity(int2);
 
-        textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null,null);
+       // textToSpeech.speak(message, TextToSpeech.QUEUE_FLUSH,null,null);
 
     }
     @SuppressLint("NewApi")
     public void metroTrain(){
-        String message="You have choosen metro train, Please speak destination Station";
-        Intent int2=new Intent(this,TrainsStatus.class);
+        String message="You have choosen metro train";
+        Intent int2=new Intent(this,SourceDestination5.class);
         int2.putExtra(msg,message);
         startActivity(int2);
 
@@ -321,8 +323,8 @@ public class HomeActivity1 extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     public void expressTrainHindi(){
-        String message="You have choosen Express train, Please speak destination Station";
-        Intent int2=new Intent(this,TrainsStatus.class);
+        String message="आपने एक्सप्रेस ट्रेन को चुना है";
+        Intent int2=new Intent(this,SourceDestination4.class);
         int2.putExtra(msg,message);
         startActivity(int2);
 
@@ -331,8 +333,8 @@ public class HomeActivity1 extends AppCompatActivity {
     }
     @SuppressLint("NewApi")
     public void metroTrainHindi(){
-        String message="You have choosen metro train, Please speak destination Station";
-        Intent int2=new Intent(this,TrainsStatus.class);
+        String message="आपने मेट्रो ट्रेन को चुना है";
+        Intent int2=new Intent(this,SourceDestination5.class);
         int2.putExtra(msg,message);
         startActivity(int2);
 
