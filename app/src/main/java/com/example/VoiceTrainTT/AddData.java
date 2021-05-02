@@ -57,7 +57,7 @@ public class AddData extends AppCompatActivity {
         map.put("Time",time.getText().toString());
         map.put("Type",type.getText().toString());
 
-        FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").push()
+        FirebaseDatabase.getInstance().getReference().child("Locals").child("Harbour").push()
                 .setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

@@ -32,7 +32,7 @@ public class Localtrain extends AppCompatActivity {
         final ArrayAdapter adp=new ArrayAdapter<String>(this,R.layout.listview_item,list);
         listView.setAdapter(adp);
 
-        DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("Locals").child("Central");
+        DatabaseReference reference= FirebaseDatabase.getInstance().getReference().child("Locals").child("Harbour");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

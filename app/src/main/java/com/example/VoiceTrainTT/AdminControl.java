@@ -26,7 +26,7 @@ public class AdminControl extends AppCompatActivity {
 
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Harbour"), model.class)
                         .build();
 
         adapter=new Myadapter1(options);
