@@ -35,7 +35,7 @@ public class TrainLines extends AppCompatActivity {
                 String spin1=spinner1.getSelectedItem().toString();
                 String spin2=spinner2.getSelectedItem().toString();
                 if((spin1.equalsIgnoreCase("central"))&& (spin2.equalsIgnoreCase("Up"))){
-                    startActivity(new Intent(getApplicationContext(),AdminControl.class));
+                    startActivity(new Intent(getApplicationContext(),AdminControlUp.class));
 
                 }
                 else if((spin1.equalsIgnoreCase("Central"))&& (spin2.equalsIgnoreCase("down"))){
@@ -43,7 +43,7 @@ public class TrainLines extends AppCompatActivity {
 
                 }
                 else if((spin1.equalsIgnoreCase("western"))&& (spin2.equalsIgnoreCase("Up"))){
-                    startActivity(new Intent(getApplicationContext(),AdminControlWestern.class));
+                    startActivity(new Intent(getApplicationContext(),AdminControlWesternUp.class));
 
                 }
                 else if((spin1.equalsIgnoreCase("western"))&& (spin2.equalsIgnoreCase("down"))){
@@ -51,7 +51,7 @@ public class TrainLines extends AppCompatActivity {
 
                 }
                 else if((spin1.equalsIgnoreCase("harbour"))&& (spin2.equalsIgnoreCase("up"))){
-                    startActivity(new Intent(getApplicationContext(),AdminControlHarbour.class));
+                    startActivity(new Intent(getApplicationContext(),AdminControlHarbourUp.class));
 
                 }
                 else{
