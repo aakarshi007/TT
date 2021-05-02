@@ -12,7 +12,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AdminControlMetro extends AppCompatActivity {
+public class AdminControlMetroUp extends AppCompatActivity {
     RecyclerView recview;
     MyadapterMetro1 adapter;
     FloatingActionButton fb;
@@ -20,13 +20,13 @@ public class AdminControlMetro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_controlmetro);
+        setContentView(R.layout.activity_admin_controlmetroup);
         recview=(RecyclerView)findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroDown"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroUp"), model.class)
                         .build();
 
         adapter=new MyadapterMetro1(options);

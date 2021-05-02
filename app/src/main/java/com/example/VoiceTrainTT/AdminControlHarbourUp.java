@@ -12,31 +12,31 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AdminControlMetro extends AppCompatActivity {
+public class AdminControlHarbourUp extends AppCompatActivity {
     RecyclerView recview;
-    MyadapterMetro1 adapter;
+    MyadapterHarbour1 adapter;
     FloatingActionButton fb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_controlmetro);
+        setContentView(R.layout.activity_admin_controlharbourup);
         recview=(RecyclerView)findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<model> options =
                 new FirebaseRecyclerOptions.Builder<model>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroDown"), model.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("HarbourUp"), model.class)
                         .build();
 
-        adapter=new MyadapterMetro1(options);
+        adapter=new MyadapterHarbour1(options);
         recview.setAdapter(adapter);
 
         fb=(FloatingActionButton)findViewById(R.id.fadd);
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddDataMetro.class));
+                startActivity(new Intent(getApplicationContext(),AddDataHarbour.class));
             }
         });
 

@@ -28,9 +28,9 @@
         <activity android:name=".AdminControlExpress" />
         <activity android:name=".AdminControlMetro" />
         <activity android:name=".SourceDestination2" />
-        <activity android:name=".AdminHomepage" />
-        <activity android:name=".AdminLogin" />
         <activity android:name=".SourceDestination" />
+        <activity android:name=".AdminLogin" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
 
@@ -59,8 +59,8 @@
         <activity android:name=".AddDataWestern" />
         <activity android:name=".AddDataExpress" />
         <activity android:name=".AddDataMetro" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Login_activity">
+        <activity android:name=".Login_activity" />
+        <activity android:name=".AdminHomepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

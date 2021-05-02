@@ -17,24 +17,25 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddDataMetro extends AppCompatActivity {
-    EditText trainno,source,dest,time;
+public class AddDataHarbourUp extends AppCompatActivity {
+    EditText trainno,source,dest,time,type;
     Button submit,back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_data);
+        setContentView(R.layout.activity_add_dataharbourup);
         trainno=(EditText)findViewById(R.id.trainno1);
         source=(EditText)findViewById(R.id.src1);
         dest=(EditText)findViewById(R.id.dest1);
         time=(EditText)findViewById(R.id.time1);
+        type=(EditText)findViewById(R.id.type1);
 
         back=(Button)findViewById(R.id.add_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AdminControlMetro.class));
+                startActivity(new Intent(getApplicationContext(),AdminControlHarbourUp.class));
                 finish();
             }
         });
@@ -54,8 +55,9 @@ public class AddDataMetro extends AppCompatActivity {
         map.put("Source",source.getText().toString());
         map.put("Destination",dest.getText().toString());
         map.put("Time",time.getText().toString());
+        map.put("Type",type.getText().toString());
 
-        FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroDown").push()
+        FirebaseDatabase.getInstance().getReference().child("Locals").child("HarbourUp").push()
                 .setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -64,6 +66,7 @@ public class AddDataMetro extends AppCompatActivity {
                         source.setText("");
                         dest.setText("");
                         time.setText("");
+                        type.setText("");
 
                         Toast.makeText(getApplicationContext(),"Inserted Successfully",Toast.LENGTH_LONG).show();
                     }

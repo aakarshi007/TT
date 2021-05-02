@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         Intent intent2 = getIntent();
         sourceStn = intent2.getStringExtra("SOURCE");
         destStn = intent2.getStringExtra("DEST");
-        if (sourceStn.equalsIgnoreCase("Mumbai CST") && destStn.equalsIgnoreCase("Byculla")) {
+        if (sourceStn.equalsIgnoreCase("Mumbai CST") && (destStn.equalsIgnoreCase("Byculla") || destStn.equalsIgnoreCase("Dadar"))) {
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").equalTo("CSMT"), model.class)
@@ -74,17 +74,17 @@ public class MainActivity extends AppCompatActivity
             adapter = new myadapter(options);
             recview.setAdapter(adapter);
             count=1;
-        } else if (sourceStn.equalsIgnoreCase("Mumbai CST") && destStn.equalsIgnoreCase("Dadar")) {
+        } else if ((sourceStn.equalsIgnoreCase("Mumbai CST"))||(sourceStn.equalsIgnoreCase("Byculla")) && destStn.equalsIgnoreCase("Dadar")) {
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
-                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").startAt("C").endAt("M\uf8ff"), model.class)
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").equalTo("CSMT"), model.class)
                             .build();
             adapter = new myadapter(options);
             recview.setAdapter(adapter);
             count=2;
 
         }
-        else if (sourceStn.equalsIgnoreCase("Mumbai CST") && destStn.equalsIgnoreCase("Kurla")){
+        else if ((sourceStn.equalsIgnoreCase("Mumbai CST"))||(sourceStn.equalsIgnoreCase("Byculla"))||(sourceStn.equalsIgnoreCase("Dadar")) && destStn.equalsIgnoreCase("Kurla")){
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").startAt("C").endAt("M\uf8ff"), model.class)
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
             count=3;
 
         }
-        else if (sourceStn.equalsIgnoreCase("Mumbai CST") && destStn.equalsIgnoreCase("Ghatkopar")) {
+        else if ((sourceStn.equalsIgnoreCase("Mumbai CST"))||(sourceStn.equalsIgnoreCase("Byculla"))||(sourceStn.equalsIgnoreCase("Dadar"))||(destStn.equalsIgnoreCase("Ghatkopar")) ||(destStn.equalsIgnoreCase("Mulund"))){
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
                             .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").startAt("C").endAt("M\uf8ff"), model.class)
@@ -103,28 +103,37 @@ public class MainActivity extends AppCompatActivity
             recview.setAdapter(adapter);
             count=4;
         }
-        else if (sourceStn.equalsIgnoreCase("Mumbai CST") && destStn.equalsIgnoreCase("Mulund")) {
+        else if (sourceStn.equalsIgnoreCase("Kalyan")) {
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
-                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").startAt("C").endAt("M\uf8ff"), model.class)
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("CentralUp").orderByChild("Source").equalTo("Kalyan"), model.class)
                             .build();
             adapter = new myadapter(options);
             recview.setAdapter(adapter);
             count=5;
         }
-        else if (sourceStn.equalsIgnoreCase("Kalyan") && destStn.equalsIgnoreCase("Dombivli")) {
+        else if (sourceStn.equalsIgnoreCase("Dombivali")) {
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
-                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("CentralUp"), model.class)
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("CentralUp").orderByChild("Source").startAt("D").endAt("K\uf8ff"), model.class)
                             .build();
             adapter = new myadapter(options);
             recview.setAdapter(adapter);
             count=6;
         }
-        else if (sourceStn.equalsIgnoreCase("Kalyan") && destStn.equalsIgnoreCase("Diva")) {
+        else if (sourceStn.equalsIgnoreCase("Diva")) {
             FirebaseRecyclerOptions<model> options =
                     new FirebaseRecyclerOptions.Builder<model>()
-                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("Central").orderByChild("Source").equalTo("Kalyan"), model.class)
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("CentralUp").orderByChild("Source").startAt("D").endAt("K\uf8ff"), model.class)
+                            .build();
+            adapter = new myadapter(options);
+            recview.setAdapter(adapter);
+            count=7;
+        }
+        else if (sourceStn.equalsIgnoreCase("Thane")) {
+            FirebaseRecyclerOptions<model> options =
+                    new FirebaseRecyclerOptions.Builder<model>()
+                            .setQuery(FirebaseDatabase.getInstance().getReference().child("Locals").child("CentralUp"), model.class)
                             .build();
             adapter = new myadapter(options);
             recview.setAdapter(adapter);
@@ -196,7 +205,37 @@ else
                         }
 
                     }
-                    else if(count==6){
+                    else if(count==2 || count ==3 || count ==4){
+                        if(hour == 6){
+                            textToSpeech.speak("One Train is available at... " + "6:05" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                        }
+                        else if(hour==7) {
+                            textToSpeech.speak("One Train is available  at... " + "7:04" + "...Source is..." + Source + "...Destination is....Badlapur..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                        }
+                        else if(hour==8) {
+                            textToSpeech.speak("One Train is available at... " + "8:15" + "...Source is..." + Source + "...Destination is....Karjat..." + "Fast", TextToSpeech.QUEUE_FLUSH, null, null);
+                        } else if(hour==9) {
+                            textToSpeech.speak("One Train is available at... " + "9" + "...Source is..." + Source + "...Destination is....Khopoli..." + "Fast", TextToSpeech.QUEUE_FLUSH, null, null);
+                        } else if(hour==10) {
+                            textToSpeech.speak("Three Trains are  Available...one is  at... " + "10" + "...Source is..." + Source + "...Destination is....Badlapur..." + Type + "... and another one is at 10:30...Source is..." + Source + "...Destination is....Dombivli...Fast and another one is at 10:00...Source is... Dadar + ...Destination is....Thane...SLow", TextToSpeech.QUEUE_FLUSH, null, null);
+                        } else if(hour==11) {
+                            textToSpeech.speak("Two Trains are  Available...one is  at... " + "11" + "...Source is..." + Source + "...Destination is....Kalyan..." + "Fast" + "... and another one is at 11:30...Source is..." + Source + "...Destination is....Asangaon..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                        }
+                        else if(hour==12) {
+                            textToSpeech.speak("One Train is available at... " + "12:30" + "...Source is..." + Source + "...Destination is....Dombivli..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                        }else if(hour==13) {
+                            textToSpeech.speak("Two Trains are  Available... one is  at... " + "13:15" + "...Source is..." + Source + "...Destination is....Kasara..." + Type + "... and another one is at 13:30...Source is..." + Source + "...Destination is....Thane..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                        }else if(hour==14) {
+                            textToSpeech.speak("Two Trains are  Available... one is  at... " + "14" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type+ "... and another one is at 14:30...Source is..." + Source + "...Destination is....Karjat..." + "Fast", TextToSpeech.QUEUE_FLUSH, null, null);
+                        }else if(hour==15) {
+                            textToSpeech.speak("Two Trains are  Available .... one is  at... " + "15:5" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type + "... and another one is at 15:40...Source is..." + Source + "...Destination is....Dombivli..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
+                        }else if(hour==16) {
+                            textToSpeech.speak("One train  is available  at... " + "4" + "...Source is..." + Source + "...Destination is....Kasara...", TextToSpeech.QUEUE_FLUSH, null, null);
+                        }else if(hour==17) {
+                            textToSpeech.speak("One train  is available  at... " + "17:30" + "...Source is..." + Source + "...Destination is....Thane...", TextToSpeech.QUEUE_FLUSH, null, null);
+                        }
+                    }
+                    else if(count==8){
                         if(hour == 6){
                             textToSpeech.speak("One Train is available at... " + "6:05" + "...Source is..." + Source + "...Destination is....Kalyan..." + Type, TextToSpeech.QUEUE_FLUSH, null, null);
                         }

@@ -17,14 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddDataMetro extends AppCompatActivity {
+public class AddDataMetroUp extends AppCompatActivity {
     EditText trainno,source,dest,time;
     Button submit,back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_data);
+        setContentView(R.layout.activity_add_dataup);
         trainno=(EditText)findViewById(R.id.trainno1);
         source=(EditText)findViewById(R.id.src1);
         dest=(EditText)findViewById(R.id.dest1);
@@ -34,7 +34,7 @@ public class AddDataMetro extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AdminControlMetro.class));
+                startActivity(new Intent(getApplicationContext(),AdminControlMetroUp.class));
                 finish();
             }
         });
@@ -55,7 +55,7 @@ public class AddDataMetro extends AppCompatActivity {
         map.put("Destination",dest.getText().toString());
         map.put("Time",time.getText().toString());
 
-        FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroDown").push()
+        FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroUp").push()
                 .setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

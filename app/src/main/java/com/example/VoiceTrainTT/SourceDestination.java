@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteCursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.speech.RecognitionListener;
@@ -13,6 +14,7 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -52,6 +54,10 @@ public class SourceDestination extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter2=new ArrayAdapter<String >(getApplicationContext(),android.R.layout.simple_spinner_item,dest);
         arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(arrayAdapter2);
+
+
+
+
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, PackageManager.PERMISSION_GRANTED);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -224,7 +230,9 @@ public class SourceDestination extends AppCompatActivity {
         }
     }
     public void goToDetails(View v) {
-        if (source.getText().toString().equalsIgnoreCase(destination.getText().toString())) {
+        source.setText(spinner1.getSelectedItem().toString());
+        destination.setText(spinner2.getSelectedItem().toString());
+        if(source.getText().toString().equalsIgnoreCase(destination.getText().toString())) {
             TextView txtError = findViewById(R.id.txtError);
             txtError.setText("Invalid !! source and destination cannot be same");
             textToSpeech.speak("Invalid !! source and destiation cannot be same", TextToSpeech.QUEUE_FLUSH, null, null);
@@ -248,8 +256,8 @@ public class SourceDestination extends AppCompatActivity {
 
         } else {
             Intent int1 = new Intent(getApplicationContext(), MainActivity.class);
-            int1.putExtra("SOURCE", source.getText().toString());
-            int1.putExtra("DEST", destination.getText().toString());
+            int1.putExtra("SOURCE",spinner1.getSelectedItem().toString());
+            int1.putExtra("DEST", spinner2.getSelectedItem().toString());
             startActivity(int1);
         }
     }
