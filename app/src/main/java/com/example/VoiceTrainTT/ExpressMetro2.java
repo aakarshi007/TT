@@ -28,10 +28,10 @@ public class ExpressMetro2 extends AppCompatActivity {
 
     }
     public  void goExpress(View v){
-        String spin2=spinner2.getSelectedItem().toString();
+        String spin1=spinner1.getSelectedItem().toString();
 
-        if(spin2.equalsIgnoreCase("up")){
-            startActivity(new Intent(getApplicationContext(),AdminControlExpress.class));
+        if(spin1.equalsIgnoreCase("up")){
+            startActivity(new Intent(getApplicationContext(),AdminControlExpressUp.class));
 
         }
         else {
@@ -41,8 +41,8 @@ public class ExpressMetro2 extends AppCompatActivity {
 
     }
     public  void goMetro(View v){
-        String spin1=spinner1.getSelectedItem().toString();
-        if(spin1.equalsIgnoreCase("up")){
+        String spin2=spinner2.getSelectedItem().toString();
+        if(spin2.equalsIgnoreCase("up")){
             startActivity(new Intent(getApplicationContext(),AdminControlMetroUp.class));
 
         }

@@ -35,7 +35,7 @@ public class AddDataExpressUp extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AdminControlExpress.class));
+                startActivity(new Intent(getApplicationContext(),AdminControlExpressUp.class));
                 finish();
             }
         });

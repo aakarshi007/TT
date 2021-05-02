@@ -30,12 +30,21 @@
         <activity android:name=".AdminControlHarbour" />
         <activity android:name=".AdminControlHarbourUp" />
         <activity android:name=".AdminControlExpress" />
+        <activity android:name=".AdminControlExpressUp" />
         <activity android:name=".AdminControlMetro" />
         <activity android:name=".AdminControlMetroUp" />
         <activity android:name=".SourceDestination2" />
+        <activity android:name=".SourceDestination3" />
+        <activity android:name=".SourceDestination4" />
+        <activity android:name=".SourceDestination5" />
         <activity android:name=".SourceDestination" />
         <activity android:name=".AdminLogin" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".MainActivity3" />
+        <activity android:name=".MainActivityExpress" />
+        <activity android:name=".MainActivityMetro" />
+
         <activity android:name=".HomeActivity" />
         <activity android:name=".Register" />
 
@@ -69,6 +78,7 @@
         <activity android:name=".AddDataMetro" />
         <activity android:name=".AddDataMetroUp" />
         <activity android:name=".Login_activity" />
+        <activity android:name=".HomeActivity1"/>
         <activity android:name=".AdminHomepage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

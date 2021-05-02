@@ -79,20 +79,20 @@ public class TrainsStatus extends AppCompatActivity {
                 break;
 
         }
-        if (txtdis.getText().toString().equals("Ek")) {
+        if (txtdis.getText().toString().equals("Ek") ||txtdis.getText().toString().equals("one")) {
             Intent intent = new Intent(getApplicationContext(), SourceDestination.class);
             String val = txtdis.getText().toString();
             intent.putExtra(msg, val);
             startActivity(intent);
         }
 
-        else if(txtdis.getText().toString().equalsIgnoreCase("do")){
+        else if(txtdis.getText().toString().equalsIgnoreCase("do")||txtdis.getText().toString().equals("two")){
             Intent intent=new Intent(getApplicationContext(),SourceDestination2.class);
             String val=txtdis.getText().toString();
             intent.putExtra(msg,val);
             startActivity(intent);
         }
-        else if(txtdis.getText().toString().equalsIgnoreCase("Tin")){
+        else if(txtdis.getText().toString().equalsIgnoreCase("Tin")|| txtdis.getText().toString().equals("three")){
             Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             String val=txtdis.getText().toString();
             intent.putExtra(msg,val);

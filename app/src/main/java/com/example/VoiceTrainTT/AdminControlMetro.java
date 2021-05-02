@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminControlMetro extends AppCompatActivity {
     RecyclerView recview;
-    MyadapterMetro1 adapter;
+    MyadapterMetroDown1 adapter;
     FloatingActionButton fb;
 
     @Override
@@ -29,7 +29,7 @@ public class AdminControlMetro extends AppCompatActivity {
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroDown"), model.class)
                         .build();
 
-        adapter=new MyadapterMetro1(options);
+        adapter=new MyadapterMetroDown1(options);
         recview.setAdapter(adapter);
 
         fb=(FloatingActionButton)findViewById(R.id.fadd);

@@ -24,9 +24,9 @@ import com.orhanobut.dialogplus.ViewHolder;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetro.myviewholder>
+public class MyadapterExpressDown1 extends FirebaseRecyclerAdapter<model, MyadapterExpressDown1.myviewholder>
 {
-    public MyadapterMetro(@NonNull FirebaseRecyclerOptions<model> options) {
+    public MyadapterExpressDown1(@NonNull FirebaseRecyclerOptions<model> options) {
 
         super(options);
     }
@@ -38,7 +38,7 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
        holder.Source.setText(model.getSource());
        holder.Destination.setText(model.getDestination());
        holder.Time.setText(model.getTime());
-       holder.Type.setText(model.getType());
+       holder.TrainName.setText(model.getTrainName());
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +52,7 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
                 final EditText Source=myview.findViewById(R.id.source);
                 final EditText Destination=myview.findViewById(R.id.dest);
                 final EditText Time=myview.findViewById(R.id.times);
-                final EditText Type=myview.findViewById(R.id.types);
+                final EditText TrainName=myview.findViewById(R.id.types);
 
                 Button submit=myview.findViewById(R.id.usubmit);
 
@@ -60,7 +60,7 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
                 Source.setText(model.getSource());
                 Destination.setText(model.getDestination());
                 Time.setText(model.getTime());
-                Type.setText(model.getType());
+                TrainName.setText(model.getTrainName());
 
                 dialogPlus.show();
 
@@ -72,10 +72,10 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
                         map.put("Source",Source.getText().toString());
                         map.put("Destination",Destination.getText().toString());
                         map.put("Time",Time.getText().toString());
-                        map.put("Type",Type.getText().toString());
+                        map.put("TrainName",TrainName.getText().toString());
 
 
-                        FirebaseDatabase.getInstance().getReference().child("Metro").child("MetroUp")
+                        FirebaseDatabase.getInstance().getReference().child("Express").child("ExpressDown")
                                 .child(getRef(position).getKey()).updateChildren(map)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -107,7 +107,7 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        FirebaseDatabase.getInstance().getReference().child("Locals").child("Central")
+                        FirebaseDatabase.getInstance().getReference().child("Express").child("ExpressDown")
                                 .child(getRef(position).getKey()).removeValue();
                     }
                 });
@@ -135,7 +135,7 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
 
     class myviewholder extends RecyclerView.ViewHolder
     {
-        TextView TrainNo, Source, Destination, Time, Type;
+        TextView TrainNo, Source, Destination, Time, TrainName;
         ImageView edit,delete;
 
         public myviewholder(@NonNull View itemView)
@@ -145,7 +145,7 @@ public class MyadapterMetro extends FirebaseRecyclerAdapter<model, MyadapterMetr
             Source=(TextView)itemView.findViewById(R.id.src);
             Destination=(TextView)itemView.findViewById(R.id.dst);
             Time=(TextView)itemView.findViewById(R.id.time);
-            Type=(TextView)itemView.findViewById(R.id.type);
+            TrainName=(TextView)itemView.findViewById(R.id.type);
 
             edit=(ImageView)itemView.findViewById(R.id.editicon);
             delete=(ImageView)itemView.findViewById(R.id.deleteicon);

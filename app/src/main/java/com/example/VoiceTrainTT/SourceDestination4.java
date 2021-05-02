@@ -1,63 +1,45 @@
 package com.example.VoiceTrainTT;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.sqlite.SQLiteCursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class SourceDestination extends AppCompatActivity {
+public class SourceDestination4 extends AppCompatActivity {
     TextToSpeech textToSpeech;
     public static final String msg1="com.example.VoiceTrainTT.MainActivity";
     public static final String msg2="com.example.VoiceTrainTT.MainActivity";
-    Spinner spinner1,spinner2;
+
     String x,y;
     Intent intent;
     int count=0;
     ImageView img;
     SpeechRecognizer speechRecognizer;
     EditText source, destination;
-    String[] src = {"Mumbai CST", "ByCulla", "Dadar", "Kurla", "Ghatkopar", "Bhandup", "Mulund", "Thane", "Diva", "Dombivali", "Kalyan"};
-    String[] dest = {"Mumbai CST", "ByCulla", "Dadar", "Kurla", "Ghatkopar", "Bhandup", "Mulund", "Thane", "Diva", "Dombivali", "Kalyan"};
+    String[] src = {"Churchgate", "Mumbai Central", "Dadar", "Bandra", "Andheri", "Borivali", "Bhayander", "Vasai Road", "Virar"};
+    String[] dest = {"Churchgate", "Mumbai Central", "Dadar", "Bandra", "Andheri", "Borivali", "Bhayander", "Vasai Road", "Virar"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_source_destination);
+        setContentView(R.layout.activity_source_destination4);
         source = (EditText) findViewById(R.id.source1);
         destination = (EditText) findViewById(R.id.dest1);
         img=(ImageView)findViewById(R.id.imgMic);
-        spinner1=(Spinner)findViewById(R.id.spin1);
-        ArrayAdapter<String> arrayAdapter1=new ArrayAdapter<String >(getApplicationContext(),android.R.layout.simple_spinner_item,src);
-        arrayAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(arrayAdapter1);
-        spinner2=(Spinner)findViewById(R.id.spin2);
-        ArrayAdapter<String> arrayAdapter2=new ArrayAdapter<String >(getApplicationContext(),android.R.layout.simple_spinner_item,dest);
-        arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(arrayAdapter2);
-
-
-
-
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, PackageManager.PERMISSION_GRANTED);
         textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -169,63 +151,32 @@ public class SourceDestination extends AppCompatActivity {
         });
     }
     private void getSource(){
-        Intent intent=getIntent();
-        String msg1=intent.getStringExtra("msg");
-        if(msg1.equalsIgnoreCase("one")) {
-            textToSpeech.speak("Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            speechRecognizer.startListening(intent);
-
-
-            count = 1;
+        textToSpeech.speak("Please select the source station", TextToSpeech.QUEUE_FLUSH, null, null);
+        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        else
-        {
-            textToSpeech.speak("कृपया स्रोत स्टेशन का चयन करें", TextToSpeech.QUEUE_FLUSH, null, null);
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            speechRecognizer.startListening(intent);
+        speechRecognizer.startListening(intent);
 
 
-            count = 1;
-        }
+
+        count=1;
+
     }
     private void getDestination(){
-        Intent intent=getIntent();
-        String msg1=intent.getStringExtra("msg");
-        if(msg1.equalsIgnoreCase("one")) {
-            textToSpeech.speak("Please select the destination station", TextToSpeech.QUEUE_FLUSH, null, null);
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
-            speechRecognizer.startListening(intent);
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            count = 2;
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
+        textToSpeech.speak("Please select the destination station", TextToSpeech.QUEUE_FLUSH, null, null);
+        img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
+        speechRecognizer.startListening(intent);
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        else{
-            textToSpeech.speak("कृपया गंतव्य स्टेशन का चयन करें", TextToSpeech.QUEUE_FLUSH, null, null);
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_off_24);
-            speechRecognizer.startListening(intent);
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            count = 2;
-            img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
-        }
+        count=2;
+        img.setBackgroundResource(R.drawable.ic_baseline_mic_24);
+
 
     }
     private  void redirect(String srcStn,String destStn){
@@ -257,38 +208,6 @@ public class SourceDestination extends AppCompatActivity {
             Intent int1= new Intent(getApplicationContext(),MainActivity.class);
             int1.putExtra("SOURCE",srcStn);
             int1.putExtra("DEST",destStn);
-            startActivity(int1);
-        }
-    }
-    public void goToDetails(View v) {
-        source.setText(spinner1.getSelectedItem().toString());
-        destination.setText(spinner2.getSelectedItem().toString());
-        if(source.getText().toString().equalsIgnoreCase(destination.getText().toString())) {
-            TextView txtError = findViewById(R.id.txtError);
-            txtError.setText("Invalid !! source and destination cannot be same");
-            textToSpeech.speak("Invalid !! source and destiation cannot be same", TextToSpeech.QUEUE_FLUSH, null, null);
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            getSource();
-
-        } else if ((source.getText().toString().equalsIgnoreCase("") || destination.getText().toString().equalsIgnoreCase("") && (source.getText().toString().equalsIgnoreCase("") && destination.getText().toString().equalsIgnoreCase("")))) {
-            TextView txtError = findViewById(R.id.txtError);
-            txtError.setText("Invalid !! Please provide a valid source and destination");
-            textToSpeech.speak("Invalid !! Please provide a valid source and destination ", TextToSpeech.QUEUE_FLUSH, null, null);
-            try {
-                Thread.sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            getSource();
-
-        } else {
-            Intent int1 = new Intent(getApplicationContext(), MainActivity.class);
-            int1.putExtra("SOURCE",spinner1.getSelectedItem().toString());
-            int1.putExtra("DEST", spinner2.getSelectedItem().toString());
             startActivity(int1);
         }
     }

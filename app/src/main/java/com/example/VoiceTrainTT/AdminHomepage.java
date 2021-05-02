@@ -45,7 +45,7 @@ public class AdminHomepage extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.trains:
-                        startActivity(new Intent(getApplicationContext(),ExpressMetro.class));
+                        startActivity(new Intent(getApplicationContext(),ExpressMetro2.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.stations:

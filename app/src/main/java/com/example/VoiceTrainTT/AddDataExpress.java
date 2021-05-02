@@ -57,7 +57,7 @@ public class AddDataExpress extends AppCompatActivity {
         map.put("Time",time.getText().toString());
         map.put("TrainName",trainame.getText().toString());
 
-        FirebaseDatabase.getInstance().getReference().child("Express").child("ExpressUp").push()
+        FirebaseDatabase.getInstance().getReference().child("Express").child("ExpressDown").push()
                 .setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
