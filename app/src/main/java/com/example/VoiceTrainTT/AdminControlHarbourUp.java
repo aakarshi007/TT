@@ -36,7 +36,7 @@ public class AdminControlHarbourUp extends AppCompatActivity {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddDataHarbour.class));
+                startActivity(new Intent(getApplicationContext(),AddDataHarbourUp.class));
             }
         });
 

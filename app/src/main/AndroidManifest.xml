@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FeedbackAdmin"></activity>
-        <activity android:name=".ExpressMetro" />
+        <activity android:name=".ExpressMetro2"></activity>
+        <activity android:name=".Contact" />
+        <activity android:name=".FeedbackAdmin" />
         <activity android:name=".TrainLines" />
         <activity android:name=".LocalMaps" />
         <activity android:name=".feedback" />
@@ -23,10 +24,14 @@
         <activity android:name=".ForgotPassword" />
         <activity android:name=".Localtrain" />
         <activity android:name=".AdminControl" />
+        <activity android:name=".AdminControlUp" />
         <activity android:name=".AdminControlWestern" />
+        <activity android:name=".AdminControlWesternUp" />
         <activity android:name=".AdminControlHarbour" />
+        <activity android:name=".AdminControlHarbourUp" />
         <activity android:name=".AdminControlExpress" />
         <activity android:name=".AdminControlMetro" />
+        <activity android:name=".AdminControlMetroUp" />
         <activity android:name=".SourceDestination2" />
         <activity android:name=".SourceDestination" />
         <activity android:name=".AdminLogin" />
@@ -56,9 +61,13 @@
         </activity>
         <activity android:name=".AddData" />
         <activity android:name=".AddDataHarbour" />
+        <activity android:name=".AddDataHarbourUp" />
         <activity android:name=".AddDataWestern" />
+        <activity android:name=".AddDataWesternUp" />
         <activity android:name=".AddDataExpress" />
+        <activity android:name=".AddDataExpressUp" />
         <activity android:name=".AddDataMetro" />
+        <activity android:name=".AddDataMetroUp" />
         <activity android:name=".Login_activity" />
         <activity android:name=".AdminHomepage">
             <intent-filter>

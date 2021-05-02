@@ -84,7 +84,8 @@ public class HomeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.contact :
-                        Toast.makeText(getApplicationContext(),"Contact Panel is Open", Toast.LENGTH_LONG).show();
+                        Intent intent5 =new Intent(getApplicationContext(), Contact.class);
+                        startActivity(intent5);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.feedback :

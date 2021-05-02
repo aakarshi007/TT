@@ -36,7 +36,7 @@ public class AdminControlWesternUp extends AppCompatActivity {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddDataWestern.class));
+                startActivity(new Intent(getApplicationContext(),AddDataWesternUp.class));
             }
         });
 

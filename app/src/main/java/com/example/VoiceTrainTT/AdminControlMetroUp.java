@@ -36,7 +36,7 @@ public class AdminControlMetroUp extends AppCompatActivity {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddDataMetro.class));
+                startActivity(new Intent(getApplicationContext(),AddDataMetroUp.class));
             }
         });
 

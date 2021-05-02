@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".Contact">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="              Contacts         "
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="GENERAL ENQUIRY ( Single Number for all Railways query )	139
+                                                TOLL FREE NUMBER ( ENQUIRY )	1800-111-139
+GENERAL COMPLAIN	138
+ACCIDENTS AND SAFETY	1072"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Name of website	E-mail	Helpline number
+E-catering		1323(Care number)
+Air Ticketing	flights@irctc.co.in	1800 110 139 / 0755 - 6698100 / 4090400
+Tourism	tourism@irctc.com	1800 110 139 / 0755 - 6698100 / 4090400
+Maharajas' Express	maharajas@irctc.com	+91 9717635915"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+</LinearLayout>

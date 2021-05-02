@@ -36,7 +36,7 @@ public class AdminControlUp extends AppCompatActivity {
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddData.class));
+                startActivity(new Intent(getApplicationContext(),AddDataUp.class));
             }
         });
 
